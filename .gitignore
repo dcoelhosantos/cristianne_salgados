@@ -1,0 +1,66 @@
+### Java ###
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+### Maven ###
+# Diretórios de build do Maven
+target/
+
+# Arquivo do wrapper Maven
+!.mvn/wrapper/maven-wrapper.jar
+
+# Pastas de build em subprojetos
+src/**/target/
+
+### Spring Boot ###
+# Arquivos sensíveis
+.env
+application.properties
+
+### IDEs ###
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse/STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# VS Code
+.vscode/
+
+### Outros ###
+# Arquivos temporários ou desnecessários
+*.tmp
+*.swp
+*.bak
+
+# Arquivos auxiliares
+HELP.md

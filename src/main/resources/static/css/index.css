@@ -1,0 +1,74 @@
+.blog-post {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.blog-post p,
+h2 {
+    text-align: left;
+}
+
+.blog-post-title {
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+}
+
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
+
+.hero h2 {
+    font-family: Quicksand;
+    font-size: 56px;
+    color: #FE3434;
+    display: inline;
+}
+
+#amarelo {
+    color: #fdd835;
+}
+
+.services h3 {
+    font-size: 24px;
+    color: #ff6347;
+    margin-bottom: 20px;
+}
+
+.about h2,
+.about h3 {
+    font-size: 28px;
+    color: #fff;
+}
+
+.about p,
+.about ul {
+    font-size: 16px;
+    color: #ccc;
+}
+
+nav ul .active {
+    font-weight: bold;
+}
+
+/*Icons*/
+.list-inline-item a i {
+    color: #000; /* Cor padrão dos ícones (preto) */
+    transition: color 0.1s; /* Efeito de transição ao passar o mouse */
+}
+.list-inline-item a i:hover {
+    color: #3f3b3c; /* Cor dos ícones ao passar o mouse (exemplo: Instagram) */
+}
+.list-inline-item a i.fa-instagram {
+    color: #2d2728; /* Cor fixa para o ícone do Instagram */
+}
+.list-inline-item a i.fa-whatsapp {
+    color: #2d2728; /* Cor fixa para o ícone do WhatsApp */
+}

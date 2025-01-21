@@ -1,0 +1,37 @@
+<div class="login-background">
+    <div class="login" data-target="p-1">
+        <span onclick="fecharLogin()">&times;</span>
+        <h1 class="titulo-popup">LOGIN</h1>
+        <form class="login-form" onsubmit="logarUsuario(event)">
+            <div class="form-group col-md-4 py-4 form-container">
+                <label for="emailLogin">EMAIL:</label>
+                <input type="email" id="emailLogin" name="emailLogin" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required />
+                <label style="margin-top: 20px" for="passwordLogin">SENHA</label>
+                <input type="password" id="passwordLogin" name="passwordLogin" required />
+            </div>
+            <a href="#" class="forgot-password">ESQUECEU SUA SENHA?</a>
+            <button type="submit" class="login-button">FAZER LOGIN</button>
+            <a href="#" class="signup-link" onclick="exibirPopUpCadastro()">AINDA NÃO POSSUI UM LOGIN? CADASTRE-SE</a>
+        </form>
+    </div>
+</div>
+
+<div class="cadastro-background">
+    <div class="cadastro" data-target="p-1">
+        <span onclick="fecharCadastro()">&times;</span>
+        <h1 class="titulo-popup">CADASTRE-SE</h1>
+        <form class="cadastro-form" onsubmit="return cadastrarUsuario(event)">
+            <div class="form-group col-md-4 py-4 form-container">
+                <label for="emailCadastro">EMAIL:</label>
+                <input type="email" id="emailCadastro" name="emailCadastro" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required />
+                <label style="margin-top: 20px" for="nome">NOME:</label>
+                <input type="text" id="nome" name="nome" placeholder="EX: CRISTIANNE COELHO" required />
+                <label style="margin-top: 20px" for="celular">CELULAR:</label>
+                <input type="tel" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required />
+                <label style="margin-top: 20px" for="password">SENHA</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit" class="cadastro-button">CADASTRAR</button>
+        </form>
+    </div>
+</div>

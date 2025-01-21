@@ -1,0 +1,190 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* Popup com scroll interno */
+.login-background, .cadastro-background {
+    overflow-y: auto; /* Permitir scroll dentro da popup */
+    max-height: 100vh; /* Limitar a altura da popup */
+}
+
+/*Login-PopUp*/
+.login-background{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height:100%;
+    width:100%;
+    z-index:100%;
+    display: none;
+}
+
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30em;
+    transform: translate(-50%, -50%);
+    border:5px solid #fff;
+    object-fit: cover;
+    background-color: #fff;;
+    margin-top: 2em;
+    padding: .5em;
+    border-radius: 2em;
+   
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+}
+
+.login-container {
+    width: 10em;
+    background-color: #eef5f7;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }  
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    padding:2em;
+    margin: auto;
+    width: 80%;
+    background-color: #ECF3F5;
+    border-radius: .5em;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  
+  .forgot-password,
+  .signup-link {
+    font-size: 12px;
+    color: #2a73d8;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .forgot-password:hover,
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    background-color: #83d95a;
+    color: #060D0F;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #6bb847;
+  }
+  
+/*Fim Login-Popup*/
+
+/*Cadastro-PopUp*/
+.cadastro-background{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height:100%;
+    width:100%;
+    z-index:100%;
+    display: none;
+}
+
+.cadastro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30em;
+    transform: translate(-50%, -50%);
+    border:5px solid #fff;
+    object-fit: cover;
+    background-color: #fff;;
+    margin-top: 2em;
+    padding: .5em;
+    border-radius: 2em;
+   
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+}
+
+  .cadastro-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cadastro-button {
+    background-color: #83d95a;
+    color: #060D0F;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s;
+  }
+  
+  .cadastro-button:hover {
+    background-color: #6bb847;
+  }
+/*Fim Cadastro-Popup*/
+
+.preview span, .login span, .cadastro span, .remover span{
+    position: absolute;
+    top: 0px; right: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #383838;
+    cursor:pointer;
+    z-index: 100;
+}

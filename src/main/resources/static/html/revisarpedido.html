@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar Pedido</title>
+    <!-- Bootstrap / CSS / Fonte -->
+    <link rel="stylesheet" href="../css/revisarpedido.css">
+    <link rel="stylesheet" href="../css/pedidos.css">
+    <link rel="stylesheet" href="../css/pedidosmod.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/shared.css">
+</head>
+
+<body>
+    <script src="../js/pedidos.js" defer></script>
+
+    <!-- Header -->
+    <header>
+        <nav id="cabecalho" class="navbar bg-body-tertiary fixed-top" style="border-bottom: solid 1px #d6d6d657;">
+            <div class="container-fluid">
+                <button id="botaoAutenticacao" class="btn btn-primary" style="background-color: #4575a5"></button>
+                <h1>Crissal</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">crissal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pedidos.html">Pedidos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br><br><br>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Detalhes do pedido -->
+        <div class="order-summary">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Revisar Pedido</h1>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Preço</th>
+                            <th>Qtd</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="produtos_adicionados"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td id="qtd_total"></td>
+                            <td id="valor_total"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <br>
+            <div class="buttons">
+                <button id="btn-cancelar" onclick="openPopup('cancelar')">Cancelar Pedido</button>
+            </div>
+        </div>
+        <!-- Formulário lateral -->
+        <div class="checkout-form">
+            <h2>Valor Total: </h2>
+            <p class="total-price"></p>
+            <form>
+                <div class="payment-methods">
+                    <input type="radio" name="buttonGroup" value="dinheiro" id="dinheiro"><label class="pagamento"
+                        for="dinheiro">Dinheiro</label>
+                    <input type="radio" name="buttonGroup" value="cartao" id="cartao"><label class="pagamento"
+                        for="cartao">Cartão</label>
+                    <input type="radio" name="buttonGroup" value="pix" id="pix"><label class="pagamento"
+                        for="pix">Pix</label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Selecione a data de retirada do pedido:</label>
+                    <input id="data_retirada" type="date" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Selecione o horário de retirada do pedido:</label>
+                    <input id="hora_retirada" type="time" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Nome completo:</label>
+                    <input id="nome_cliente" type="text" class="form-control" placeholder="Ex: Cristianne Coelho">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Celular:</label>
+                    <input id="celular_cliente" type="tel" class="form-control" placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input id="email_cliente" type="email" class="form-control" placeholder="Ex: cristiannecoelho@gmail.com">
+                </div>
+            </form>
+            <button class="btn-pagamento mt-3" onclick="exibirPopUpPagamento()">Ir para o Pagamento</button>
+        </div>
+    </div>
+
+    <!--CANCELAR-POPUP-->
+    <div class="cancelar-background">
+        <div class="cancelar" data-target="p-1">
+            <span onclick="closePopup('cancelar')">&times;</span>
+            
+            <h1 class="titulo-popup" style="margin-bottom: .8em;">Tem certeza que quer cancelar o pedido?</h1>
+            <p class="subtitulo-popup">APÓS O CANCELAMENTO VOCÊ SERÁ REDIRECIONADO À TELA DE MENU</p>
+            
+            <button type="submit" class="cancelar-button" onclick="redirecionar('menu.html')">CANCELAR</button>
+        </div>
+    </div>
+    <!--FIM-CANCELAR-POPUP-->
+
+    <!--AGRADECIMENTO-POPUP-->
+    <div class="agradecimento-background">
+        <div class="agradecimento" data-target="p-1">
+            
+            <h1 class="titulo-popup" style="margin-bottom: .8em;">Obrigado por comprar com a gente!</h1>
+            <p class="subtitulo-popup">VOCÊ RECEBERÁ UM EMAIL DE CONFIRMAÇÃO, NOSSA EQUIPE AGRADECE A PREFERÊNCIA!</p>
+            
+            <button type="submit" class="agradecimento-button" onclick="redirecionar('index.html')">VOLTAR AO INÍCIO</button>
+        </div>
+    </div>
+    <!--FIM-AGRADECIMENTO-POPUP-->
+
+    <!--DINHEIRO-POPUP-->
+    <div class="dinheiro-background">
+        <div class="dinheiro" data-target="p-1">
+            <span onclick="closePopup('dinheiro')">&times;</span>
+            
+            <h1 class="titulo-popup">Pagamento em Dinheiro</h1>
+            <p class="subtitulo-popup">Vai precisar de troco? Informe o valor!</p>
+            <div style="text-align: left; margin-left: 10%;">
+                <label>Preciso de troco para:</label>
+            </div>
+            <input id="troco" class="input-popup" type="text" placeholder="R$150,00"
+                style="width: 80%; padding: 10px; margin-top:0%; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <button type="submit" class="dinheiro-button" onclick="finalizarPedido('dinheiro')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-DINHEIRO-POPUP-->
+
+    <!--CARTÃO-POPUP-->
+    <div class="cartao-background">
+        <div class="cartao" data-target="p-1">
+            <span onclick="closePopup('cartao')">&times;</span>
+            
+            <h1 class="titulo-popup">Pagamento com Cartão</h1>
+
+            <img style="margin-bottom: 1em; margin-top: 1em;" src="../imgs/cartao.png" alt="máquina cartão" width="40%">
+
+            <p class="subtitulo-popup">Por favor, leve seu cartão no momento da retirada!</p>
+            
+            <button type="submit" class="cartao-button" onclick="finalizarPedido('cartao')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-CARTÃO-POPUP-->
+
+    <!--PIX-POPUP-->
+    <div class="pix-background">
+        <div class="pix" data-target="p-1">
+            <span onclick="closePopup('pix')">&times;</span>
+
+            <h1 class="titulo-popup">Pagamento por PIX</h1>
+
+            <img style="margin-bottom: 1em; margin-top: 1em;" src="../imgs/qr-code.png" alt="qr-code" width="40%">
+        
+
+            <p class="subtitulo-popup">Escaneie o QR Code ou copie o código abaixo:</p>
+            <input class="input-popup" type="text" value="654984684654...XYZ" readonly>
+            
+            <button type="submit" class="pix-button" onclick="finalizarPedido('pix')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-PIX-POPUP-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/shared.js" defer></script>
+    <script src="../js/revisarpedido.js" defer></script>
+</body>
+
+</html>
